@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -156,9 +157,9 @@ export default function Home() {
                 tags: ["AWS EKS", "Docker", "Kubernetes", "MySQL", "ECR", "S3", "GitHub Actions"],
               },
               {
-                title: "Automated Infrastructure with Terraform",
-                description: "Provisioned AWS infrastructure and automated server config using Terraform, Ansible, TFLint, and CI/CD quality checks.",
-                tags: ["Terraform", "Ansible", "AWS", "Automation"],
+                title: "Automated Cloud Infrastructure Deployment with Terraform and Ansible",
+                description: "Provisioned multi-environment AWS infrastructure with Terraform modules, configured web servers with Ansible dynamic inventory, and automated security scans and deployment workflows using GitHub Actions.",
+                tags: ["Terraform", "Ansible", "AWS", "GitHub Actions", "TFLint", "Trivy", "S3", "NAT Gateway"],
               },
               {
                 title: "Azure Active Directory Architecture",
@@ -183,6 +184,20 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
+                {(project.title === "Two-Tier AWS Kubernetes Web App" || project.title === "Automated Cloud Infrastructure Deployment with Terraform and Ansible") ? (
+                  <div className="mt-6">
+                    <Link
+                      href={
+                        project.title === "Two-Tier AWS Kubernetes Web App"
+                          ? "/projects/two-tier-aws-kubernetes"
+                          : "/projects/terraform-ansible-aws"
+                      }
+                      className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+                    >
+                      View details
+                    </Link>
+                  </div>
+                ) : null}
               </article>
             ))}
           </div>
