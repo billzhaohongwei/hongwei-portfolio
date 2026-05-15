@@ -29,9 +29,9 @@ export default function Home() {
           </div>
         </nav>
 
-        <section className="grid gap-10 lg:grid-cols-[1.4fr_0.9fr] lg:items-start">
-          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm shadow-slate-200/70">
-            <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
+        <section className="grid gap-10 lg:grid-cols-[1.4fr_0.9fr] lg:items-stretch">
+          <div className="h-full rounded-3xl border border-slate-200 bg-white p-8 shadow-sm shadow-slate-200/70">
+            <div className="flex flex-col gap-6 items-start sm:flex-row sm:items-start">
               <div className="relative h-32 w-32 flex-shrink-0 overflow-hidden rounded-full border-4 border-white bg-slate-100 shadow-lg shadow-slate-200/60 sm:h-36 sm:w-36">
                 <Image
                   src="/profile.jpg"
@@ -51,13 +51,13 @@ export default function Home() {
                 <p className="mt-4 max-w-xl text-lg leading-8 text-slate-600">
                   I build reliable web applications and cloud solutions with a focus on full-stack development, DevOps automation, and practical IT support.
                 </p>
+                <div className="mt-8 inline-flex max-w-fit rounded-full border border-slate-200 bg-slate-50 px-5 py-3 text-sm leading-6 text-slate-700">
+                  Open to work • Toronto / Remote / Hybrid
+                </div>
               </div>
             </div>
-            <div className="mt-8 rounded-full border border-slate-200 bg-slate-50 px-5 py-3 text-sm text-slate-700">
-              Available for Cloud, DevOps, and Full-Stack roles
-            </div>
           </div>
-          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm shadow-slate-200/70">
+          <div className="h-full rounded-3xl border border-slate-200 bg-white p-8 shadow-sm shadow-slate-200/70">
             <h2 className="text-xl font-semibold text-slate-900">Technical Snapshot</h2>
             <div className="mt-6 space-y-6 text-slate-700">
               <div>
@@ -77,21 +77,25 @@ export default function Home() {
         </section>
 
         <section id="about" className="mt-16 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm shadow-slate-200/70">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-sm uppercase tracking-[0.24em] text-slate-500">About</p>
-              <h2 className="mt-2 text-2xl font-semibold text-slate-900">Professional snapshot</h2>
-            </div>
-            <p className="text-sm text-slate-500">Toronto-based technology professional with cloud, DevOps, and support experience.</p>
+          <div className="max-w-4xl">
+            <p className="text-sm uppercase tracking-[0.24em] text-slate-500">About</p>
+            <h2 className="mt-4 text-3xl font-semibold text-slate-900">Professional snapshot</h2>
+            <p className="mt-4 max-w-2xl text-sm text-slate-500 sm:text-base leading-7">
+              I combine hands-on IT support experience with cloud and full-stack development skills to build practical, reliable, and maintainable solutions.
+            </p>
           </div>
-          <div className="mt-6 grid gap-6 sm:grid-cols-2">
-            <div className="space-y-4 rounded-3xl bg-slate-50 p-6">
-              <h3 className="text-lg font-semibold text-slate-900">What I do</h3>
-              <p className="text-slate-700 leading-7">I design, deploy, and support modern web applications and cloud infrastructure using a combination of front-end frameworks, automation tools, and best practices.</p>
+          <div className="mt-10 grid items-stretch gap-6 md:grid-cols-2">
+            <div className="rounded-3xl bg-slate-50 p-7 shadow-sm shadow-slate-200/60">
+              <h3 className="text-xl font-bold text-slate-950">What I do</h3>
+              <p className="mt-4 text-slate-700 leading-8">
+                I build and support web applications, cloud infrastructure, and deployment workflows using React, TypeScript, Firebase, AWS, Azure, Docker, Kubernetes, and automation tools.
+              </p>
             </div>
-            <div className="space-y-4 rounded-3xl bg-slate-50 p-6">
-              <h3 className="text-lg font-semibold text-slate-900">Why it matters</h3>
-              <p className="text-slate-700 leading-7">My approach helps teams deliver dependable systems faster, with clearer operations, strong security posture, and stable user experiences.</p>
+            <div className="rounded-3xl bg-slate-50 p-7 shadow-sm shadow-slate-200/60">
+              <h3 className="text-xl font-bold text-slate-950">Why it matters</h3>
+              <p className="mt-4 text-slate-700 leading-8">
+                My background in support, development, and cloud operations helps me understand both user needs and technical systems, so I can create solutions that are easier to use, operate, and maintain.
+              </p>
             </div>
           </div>
         </section>
@@ -109,7 +113,6 @@ export default function Home() {
               "React",
               "TypeScript",
               "Next.js",
-              "Tailwind CSS",
               "Firebase",
               "AWS",
               "Azure",
@@ -128,39 +131,58 @@ export default function Home() {
         </section>
 
         <section id="projects" className="mt-16">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-sm uppercase tracking-[0.24em] text-slate-500">Featured Projects</p>
-              <h2 className="mt-2 text-2xl font-semibold text-slate-900">Selected work</h2>
-            </div>
-            <p className="text-sm text-slate-500">Projects that demonstrate cloud, Kubernetes, and infrastructure automation expertise.</p>
+          <div className="max-w-4xl">
+            <p className="text-sm uppercase tracking-[0.24em] text-slate-500">Featured Projects</p>
+            <h2 className="mt-2 text-2xl font-semibold text-slate-900">Selected work</h2>
+            <p className="mt-4 text-sm text-slate-600 sm:text-base">
+              A curated selection of cloud, DevOps, and full-stack projects that demonstrate practical architecture, deployment automation, and technical support experience.
+            </p>
           </div>
-          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
             {[
               {
                 title: "Needlist.ORG Platform",
-                description: "Full-stack nonprofit platform with Firebase, Firestore, Cloud Functions, Stripe, SendGrid, and CI/CD deployment.",
+                description: "Full-stack nonprofit platform built with Firebase, Firestore, Cloud Functions, Stripe, SendGrid, and multi-environment CI/CD.",
+                tags: ["Firebase", "Stripe", "CI/CD", "Cloud Functions"],
               },
               {
-                title: "Expense Management Application Deployment with Kubernetes",
-                description: "Deployed a cloud-native expense management app with Kubernetes, PostgreSQL, Azure VMs, Terraform, and Docker.",
+                title: "Expense Management Kubernetes Deployment",
+                description: "Cloud-native expense app deployed with Kubernetes, PostgreSQL, Azure VMs, Terraform, and Docker containers.",
+                tags: ["Kubernetes", "Terraform", "Azure", "PostgreSQL"],
               },
               {
-                title: "Two-Tier Web Application Deployment with Kubernetes",
-                description: "Containerized Flask/MySQL application deployed to AWS EKS with persistent storage, S3, and GitHub Actions.",
+                title: "Two-Tier AWS Kubernetes Web App",
+                description: "Deployed a Flask/MySQL application on Amazon EKS using Docker, Kubernetes manifests, ECR, S3, Secrets, ConfigMaps, and persistent MySQL storage.",
+                tags: ["AWS EKS", "Docker", "Kubernetes", "MySQL", "ECR", "S3", "GitHub Actions"],
               },
               {
-                title: "Automated Cloud Infrastructure with Terraform and Ansible",
-                description: "Provisioned AWS infrastructure and automated server configuration with Terraform, Ansible, and CI/CD quality checks.",
+                title: "Automated Infrastructure with Terraform",
+                description: "Provisioned AWS infrastructure and automated server config using Terraform, Ansible, TFLint, and CI/CD quality checks.",
+                tags: ["Terraform", "Ansible", "AWS", "Automation"],
               },
               {
-                title: "Active Directory Domain Services Architecture on Azure",
-                description: "Designed Windows Server AD architecture on Azure with VNet peering, Bastion, IIS, and private DNS.",
+                title: "Azure Active Directory Architecture",
+                description: "Designed Windows Server AD on Azure with VNet peering, Azure Bastion, IIS, private DNS, and secure network segmentation.",
+                tags: ["Azure", "Active Directory", "VNet", "Bastion"],
+              },
+              {
+                title: "Secure Backup Solution for Remote Workforce",
+                description: "Built a backup automation design with VPN access, encryption, centralized restore management, and remote workforce security.",
+                tags: ["VPN", "Backup", "Encryption", "Security"],
               },
             ].map((project) => (
-              <article key={project.title} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/60">
-                <h3 className="text-xl font-semibold text-slate-900">{project.title}</h3>
-                <p className="mt-3 text-slate-600 leading-7">{project.description}</p>
+              <article key={project.title} className="flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/60">
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold text-slate-900">{project.title}</h3>
+                  <p className="mt-3 text-slate-600 leading-7">{project.description}</p>
+                </div>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="rounded-full border border-slate-200 bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </article>
             ))}
           </div>
@@ -187,7 +209,7 @@ export default function Home() {
                 ],
               },
               {
-                role: "Technical Support",
+                role: "Technical Support & Administrative Assistant",
                 company: "Wisdom Academy Toronto",
                 period: "IT support and server operations",
                 highlights: [
@@ -197,7 +219,7 @@ export default function Home() {
                 ],
               },
               {
-                role: "Technical Support Specialist",
+                role: "Customer Service Representative",
                 company: "TTEC Canada",
                 period: "Customer support and remote troubleshooting",
                 highlights: [
