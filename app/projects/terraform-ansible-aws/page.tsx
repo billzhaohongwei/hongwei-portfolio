@@ -50,15 +50,13 @@ export default function TerraformAnsibleAwsPage() {
           </div>
         </div>
 
-        <section className="grid gap-6 lg:grid-cols-[2fr_1fr]">
-          <div className="space-y-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm shadow-slate-200/70">
-            <div>
-              <h2 className="text-2xl font-semibold text-slate-900">Project overview</h2>
-              <p className="mt-4 text-base leading-8 text-slate-600">
-                This project focused on applying Infrastructure as Code, configuration management, and CI/CD automation to deploy a repeatable AWS hosting environment. Terraform was used to provision cloud infrastructure across multiple environments, while Ansible was used to configure web servers and validate system state. GitHub Actions supported automated Terraform validation, security scanning, and deployment workflows.
-              </p>
-            </div>
-            <div>
+        <section className="space-y-6">
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm shadow-slate-200/70">
+            <h2 className="text-2xl font-semibold text-slate-900">Project overview</h2>
+            <p className="mt-4 text-base leading-8 text-slate-600">
+              This project focused on applying Infrastructure as Code, configuration management, and CI/CD automation to deploy a repeatable AWS hosting environment. Terraform was used to provision cloud infrastructure across multiple environments, while Ansible was used to configure web servers and validate system state. GitHub Actions supported automated Terraform validation, security scanning, and deployment workflows.
+            </p>
+            <div className="mt-8">
               <h3 className="text-xl font-semibold text-slate-900">Technology tags</h3>
               <div className="mt-4 flex flex-wrap gap-3">
                 {[
@@ -91,36 +89,38 @@ export default function TerraformAnsibleAwsPage() {
 
           <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm shadow-slate-200/70">
             <h2 className="text-2xl font-semibold text-slate-900">Architecture</h2>
-            <div className="mt-6 space-y-4 rounded-3xl bg-slate-50 p-6">
-              <div className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Infrastructure flow</div>
-              <div className="space-y-3 text-slate-700">
-                <div>GitHub Repository</div>
-                <div className="ml-4">→ GitHub Actions</div>
-                <div className="ml-8">→ Terraform validation and security scanning</div>
-                <div className="ml-12">→ AWS infrastructure provisioning</div>
-                <div className="ml-16">→ VPC with public and private subnets</div>
-                <div className="ml-20">→ EC2 web servers and bastion host</div>
-                <div className="ml-24">→ NAT Gateway for private subnet internet access</div>
-                <div className="ml-24">→ Ansible control host</div>
-                <div className="ml-24">→ Dynamic inventory</div>
-                <div className="ml-24">→ Web server configuration</div>
+            <div className="mt-6 grid gap-6 lg:grid-cols-[1.2fr_0.9fr]">
+              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                <div className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Infrastructure flow</div>
+                <div className="mt-4 space-y-3 text-slate-700">
+                  <div>GitHub Repository</div>
+                  <div className="ml-4">→ GitHub Actions</div>
+                  <div className="ml-8">→ Terraform validation and security scanning</div>
+                  <div className="ml-12">→ AWS infrastructure provisioning</div>
+                  <div className="ml-16">→ VPC with public and private subnets</div>
+                  <div className="ml-20">→ EC2 web servers and bastion host</div>
+                  <div className="ml-24">→ NAT Gateway for private subnet internet access</div>
+                  <div className="ml-24">→ Ansible control host</div>
+                  <div className="ml-24">→ Dynamic inventory</div>
+                  <div className="ml-24">→ Web server configuration</div>
+                </div>
               </div>
-            </div>
-            <div className="mt-6 space-y-4 rounded-3xl bg-slate-50 p-6">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Implementation details</p>
-              <ul className="mt-3 space-y-3 text-slate-700">
-                <li>Terraform provisioned the base AWS infrastructure</li>
-                <li>Ansible configured selected EC2 instances as web servers</li>
-                <li>Bastion host provided controlled access to private instances</li>
-                <li>NAT Gateway allowed private subnet instances to reach the internet</li>
-                <li>S3 stored Terraform state and website images</li>
-                <li>GitHub Actions supported security scanning with tools such as TFLint and Trivy</li>
-              </ul>
+              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Implementation details</p>
+                <ul className="mt-3 space-y-3 text-slate-700">
+                  <li>Terraform provisioned the base AWS infrastructure</li>
+                  <li>Ansible configured selected EC2 instances as web servers</li>
+                  <li>Bastion host provided controlled access to private instances</li>
+                  <li>NAT Gateway allowed private subnet instances to reach the internet</li>
+                  <li>S3 stored Terraform state and website images</li>
+                  <li>GitHub Actions supported security scanning with tools such as TFLint and Trivy</li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="grid gap-6 lg:grid-cols-2">
+        <section className="space-y-6">
           <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm shadow-slate-200/70">
             <h2 className="text-2xl font-semibold text-slate-900">Key implementation features</h2>
             <div className="mt-6 grid gap-4">

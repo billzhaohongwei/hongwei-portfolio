@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function TwoTierAwsKubernetesPage() {
+export default function AzureActiveDirectoryPage() {
   return (
     <div className="min-h-screen bg-slate-50 px-4 py-10 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl space-y-10">
@@ -11,22 +11,23 @@ export default function TwoTierAwsKubernetesPage() {
           >
             ← Back to home
           </Link>
+
           <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm shadow-slate-200/70">
             <div className="space-y-6">
               <div>
                 <p className="text-sm uppercase tracking-[0.28em] text-slate-500">Project case study</p>
                 <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-                  Two-Tier Web Application Deployment with Kubernetes
+                  Azure Active Directory Domain Services Architecture
                 </h1>
               </div>
               <p className="max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
-                A cloud-native deployment project that containerized and deployed a Flask/MySQL application to Amazon EKS with automated image publishing, secure configuration, private S3 asset access, and persistent database storage.
+                An Azure infrastructure project that deployed a Windows domain environment with AD DS, DNS, IIS, Azure Bastion, VNet peering, and private VM access across multiple virtual networks.
               </p>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {[
-                  { label: "Course", value: "Seneca Polytechnic – CLO835 Portable Technologies in Cloud" },
-                  { label: "Type", value: "Cloud / Kubernetes / DevOps" },
-                  { label: "Platform", value: "Amazon EKS" },
+                  { label: "Course", value: "Seneca Polytechnic – CLO700 Azure Infrastructure Project" },
+                  { label: "Type", value: "Azure / Windows Server / Networking" },
+                  { label: "Platform", value: "Microsoft Azure" },
                   { label: "Role", value: "Student project implementation" },
                 ].map((item) => (
                   <div key={item.label} className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
@@ -34,16 +35,6 @@ export default function TwoTierAwsKubernetesPage() {
                     <p className="mt-3 text-sm font-medium text-slate-900 leading-6">{item.value}</p>
                   </div>
                 ))}
-              </div>
-              <div className="mt-6">
-                <a
-                  href="https://github.com/billzhaohongwei/clo835-final-webapp"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex rounded-full border border-slate-200 bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
-                >
-                  View GitHub Repo
-                </a>
               </div>
             </div>
           </div>
@@ -53,25 +44,24 @@ export default function TwoTierAwsKubernetesPage() {
           <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm shadow-slate-200/70">
             <h2 className="text-2xl font-semibold text-slate-900">Project overview</h2>
             <p className="mt-4 text-base leading-8 text-slate-600">
-              This project focused on deploying a two-tier web application to a managed Kubernetes cluster on Amazon EKS. The application included a Flask web service and a MySQL database. I enhanced the application configuration, containerized the app with Docker, automated image publishing to Amazon ECR through GitHub Actions, and deployed the application using Kubernetes manifests.
+              This project focused on building a Windows domain environment in Microsoft Azure. I deployed a domain controller, webserver, and client VM across separate virtual networks, configured virtual network peering, enabled secure administrative access with Azure Bastion, installed AD DS and DNS on the domain controller, installed IIS on the webserver, and verified that the client could access the webserver by FQDN after joining the domain.
             </p>
             <div className="mt-8">
               <h3 className="text-xl font-semibold text-slate-900">Technology tags</h3>
               <div className="mt-4 flex flex-wrap gap-3">
                 {[
-                  "AWS EKS",
-                  "Docker",
-                  "Kubernetes",
-                  "Flask",
-                  "MySQL",
-                  "Amazon ECR",
-                  "Amazon S3",
-                  "GitHub Actions",
-                  "ConfigMap",
-                  "Secrets",
-                  "IRSA",
-                  "PVC",
-                  "EBS",
+                  "Azure",
+                  "Active Directory Domain Services",
+                  "DNS",
+                  "IIS",
+                  "Windows Server",
+                  "Windows Client",
+                  "Azure Bastion",
+                  "Virtual Machines",
+                  "Virtual Networks",
+                  "VNet Peering",
+                  "Private Access",
+                  "FQDN",
                 ].map((tag) => (
                   <span
                     key={tag}
@@ -88,24 +78,26 @@ export default function TwoTierAwsKubernetesPage() {
             <h2 className="text-2xl font-semibold text-slate-900">Architecture</h2>
             <div className="mt-6 grid gap-6 lg:grid-cols-[1.2fr_0.9fr]">
               <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-                <div className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Deployment flow</div>
+                <div className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Infrastructure flow</div>
                 <div className="mt-4 space-y-3 text-slate-700">
-                  <div>User</div>
-                  <div className="ml-4">→ Kubernetes LoadBalancer Service</div>
-                  <div className="ml-8">→ Flask Application Pod</div>
-                  <div className="ml-12">→ MySQL Service</div>
-                  <div className="ml-16">→ MySQL Pod</div>
-                  <div className="ml-20">→ PersistentVolumeClaim / Amazon EBS</div>
+                  <div>Azure Bastion</div>
+                  <div className="ml-4">→ Private VM access</div>
+                  <div className="ml-8">→ Domain Controller VM with AD DS and DNS</div>
+                  <div className="ml-8">→ VNet peering across three virtual networks</div>
+                  <div className="ml-8">→ Webserver VM with IIS joined to the domain</div>
+                  <div className="ml-8">→ Client VM joined to the domain</div>
+                  <div className="ml-8">→ Client accesses IIS website using FQDN</div>
                 </div>
               </div>
               <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">AWS & Kubernetes integration</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Architecture details</p>
                 <ul className="mt-3 space-y-3 text-slate-700">
-                  <li>ConfigMap for application settings</li>
-                  <li>Secret for MySQL credentials</li>
-                  <li>Amazon S3 for private background image storage</li>
-                  <li>IRSA for controlled S3 access</li>
-                  <li>Amazon ECR for container image hosting</li>
+                  <li>The domain controller was placed in its own virtual network.</li>
+                  <li>The webserver and client were placed in separate virtual networks.</li>
+                  <li>VNet peering connected the networks.</li>
+                  <li>Azure Bastion provided browser-based private access to VMs without public IP addresses.</li>
+                  <li>AD DS and DNS supported domain join and FQDN-based access.</li>
+                  <li>IIS hosted the web page on the Windows Server webserver.</li>
                 </ul>
               </div>
             </div>
@@ -117,15 +109,17 @@ export default function TwoTierAwsKubernetesPage() {
             <h2 className="text-2xl font-semibold text-slate-900">Key implementation features</h2>
             <div className="mt-6 grid gap-4">
               {[
-                "Containerized the Flask/MySQL application using Docker",
-                "Built and published the application image to Amazon ECR using GitHub Actions",
-                "Deployed the application to Amazon EKS using Kubernetes manifests",
-                "Used ConfigMaps for environment-based application configuration",
-                "Used Kubernetes Secrets for MySQL credentials",
-                "Stored background images in a private Amazon S3 bucket",
-                "Used IRSA to control application access to private S3 assets",
-                "Used PersistentVolumeClaim and Amazon EBS for MySQL data persistence",
-                "Exposed the Flask application through a stable Kubernetes service",
+                "Created an Azure resource group for the lab environment",
+                "Deployed three Azure Virtual Networks with four subnets",
+                "Configured Virtual Network Peering between the networks",
+                "Deployed a Windows Server domain controller VM",
+                "Installed and configured Active Directory Domain Services and DNS",
+                "Created domain users and joined machines to the domain",
+                "Deployed a Windows Server webserver VM",
+                "Installed and configured IIS on the webserver",
+                "Deployed a Windows client VM",
+                "Used Azure Bastion for secure private VM access",
+                "Verified website access from the client VM using FQDN",
               ].map((item) => (
                 <div key={item} className="rounded-3xl border border-slate-200 bg-slate-50 p-5 text-slate-700">
                   {item}
@@ -139,23 +133,23 @@ export default function TwoTierAwsKubernetesPage() {
             <div className="mt-6 space-y-4">
               <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
                 <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Challenge</p>
-                <h3 className="mt-2 text-xl font-semibold text-slate-900">Securely loading background images from a private S3 bucket</h3>
+                <h3 className="mt-2 text-xl font-semibold text-slate-900">Connecting VMs across separate virtual networks</h3>
                 <p className="mt-3 text-slate-700 leading-7">
-                  Used Kubernetes configuration and controlled AWS access so the application could retrieve background assets without exposing credentials in code.
+                  Configured Azure Virtual Network Peering so the domain controller, webserver, and client could communicate across different VNets.
                 </p>
               </div>
               <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
                 <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Challenge</p>
-                <h3 className="mt-2 text-xl font-semibold text-slate-900">Keeping MySQL data after pod recreation</h3>
+                <h3 className="mt-2 text-xl font-semibold text-slate-900">Accessing VMs securely without exposing public IP addresses</h3>
                 <p className="mt-3 text-slate-700 leading-7">
-                  Used PersistentVolumeClaim backed by AWS storage so database data could persist even when pods were deleted and recreated.
+                  Used Azure Bastion to connect to virtual machines through the Azure portal while keeping VM access private.
                 </p>
               </div>
               <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
                 <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Challenge</p>
-                <h3 className="mt-2 text-xl font-semibold text-slate-900">Automating image publishing</h3>
+                <h3 className="mt-2 text-xl font-semibold text-slate-900">Ensuring domain-based name resolution and website access</h3>
                 <p className="mt-3 text-slate-700 leading-7">
-                  Used GitHub Actions to build, test, and publish the Docker image to Amazon ECR, reducing manual deployment steps.
+                  Configured AD DS and DNS on the domain controller, joined the webserver and client to the domain, and verified that the client could reach the IIS website using FQDN.
                 </p>
               </div>
             </div>
@@ -166,7 +160,7 @@ export default function TwoTierAwsKubernetesPage() {
           <div>
             <h2 className="text-2xl font-semibold text-slate-900">Demo video</h2>
             <p className="mt-3 text-base leading-7 text-slate-600">
-              A recorded walkthrough is available for this project and can be embedded here later to show the deployment process, Kubernetes resources, S3 image loading, and persistence test.
+              A recorded walkthrough can be embedded here later to demonstrate Azure Bastion access, VNet peering, domain join validation, IIS configuration, and FQDN-based website access from the client VM.
             </p>
           </div>
           <div className="rounded-3xl border border-dashed border-slate-200 bg-slate-50 p-8 text-center text-slate-600">
@@ -178,11 +172,12 @@ export default function TwoTierAwsKubernetesPage() {
           <h2 className="text-2xl font-semibold text-slate-900">What I learned</h2>
           <ul className="mt-6 space-y-4 text-slate-700">
             {[
-              "How to deploy a containerized two-tier application to a managed Kubernetes platform",
-              "How to use Kubernetes ConfigMaps, Secrets, Services, Deployments, and PVCs",
-              "How to connect Kubernetes workloads with AWS services such as ECR, S3, EKS, IAM, and EBS",
-              "How CI/CD can reduce manual image build and deployment work",
-              "How persistence, security, and configuration management affect cloud-native application design",
+              "How to design a basic Windows domain environment in Azure",
+              "How Azure Bastion supports secure private VM administration",
+              "How VNet peering enables communication across separate virtual networks",
+              "How AD DS and DNS support domain join and FQDN resolution",
+              "How IIS can be deployed on Windows Server in a domain environment",
+              "How to validate infrastructure using client-to-server connectivity testing",
             ].map((item) => (
               <li key={item} className="list-disc pl-5 leading-8">{item}</li>
             ))}

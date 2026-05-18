@@ -131,6 +131,23 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="certifications" className="mt-16">
+          <div className="max-w-4xl">
+            <p className="text-sm uppercase tracking-[0.24em] text-slate-500">CERTIFICATIONS</p>
+            <h2 className="mt-2 text-2xl font-semibold text-slate-900">Cloud certifications</h2>
+          </div>
+          <div className="mt-6 grid gap-6 sm:grid-cols-2">
+            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/60">
+              <h3 className="text-lg font-semibold text-slate-900">AWS Certified Solutions Architect – Associate</h3>
+              <p className="mt-2 text-sm text-slate-500">SAA-C03 • Issued Feb 2026</p>
+            </div>
+            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/60">
+              <h3 className="text-lg font-semibold text-slate-900">AWS Certified Cloud Practitioner</h3>
+              <p className="mt-2 text-sm text-slate-500">CLF-C02 • Issued Oct 2025</p>
+            </div>
+          </div>
+        </section>
+
         <section id="projects" className="mt-16">
           <div className="max-w-4xl">
             <p className="text-sm uppercase tracking-[0.24em] text-slate-500">Featured Projects</p>
@@ -142,9 +159,9 @@ export default function Home() {
           <div className="mt-8 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
             {[
               {
-                title: "Needlist.ORG Platform",
-                description: "Full-stack nonprofit platform built with Firebase, Firestore, Cloud Functions, Stripe, SendGrid, and multi-environment CI/CD.",
-                tags: ["Firebase", "Stripe", "CI/CD", "Cloud Functions"],
+                title: "Needlist.ORG Charity Platform MVP",
+                description: "Contributed to a charity platform MVP supporting donation workflows, Firebase backend services, payment-related processes, email automation, receipt generation, and deployment configuration.",
+                tags: ["React", "Firebase", "Firestore", "Cloud Functions", "Stripe", "SendGrid", "CI/CD"],
               },
               {
                 title: "Expense Management Kubernetes Deployment",
@@ -155,16 +172,19 @@ export default function Home() {
                 title: "Two-Tier AWS Kubernetes Web App",
                 description: "Deployed a Flask/MySQL application on Amazon EKS using Docker, Kubernetes manifests, ECR, S3, Secrets, ConfigMaps, and persistent MySQL storage.",
                 tags: ["AWS EKS", "Docker", "Kubernetes", "MySQL", "ECR", "S3", "GitHub Actions"],
+                detailsPath: "/projects/two-tier-aws-kubernetes",
               },
               {
                 title: "Automated Cloud Infrastructure Deployment with Terraform and Ansible",
                 description: "Provisioned multi-environment AWS infrastructure with Terraform modules, configured web servers with Ansible dynamic inventory, and automated security scans and deployment workflows using GitHub Actions.",
                 tags: ["Terraform", "Ansible", "AWS", "GitHub Actions", "TFLint", "Trivy", "S3", "NAT Gateway"],
+                detailsPath: "/projects/terraform-ansible-aws",
               },
               {
-                title: "Azure Active Directory Architecture",
-                description: "Designed Windows Server AD on Azure with VNet peering, Azure Bastion, IIS, private DNS, and secure network segmentation.",
-                tags: ["Azure", "Active Directory", "VNet", "Bastion"],
+                title: "Azure Active Directory Domain Services Architecture",
+                description: "Designed an Azure-based Windows domain environment with AD DS, DNS, IIS, Azure Bastion, VNet peering, and private VM access across three virtual networks.",
+                tags: ["Azure", "AD DS", "DNS", "IIS", "VNet Peering", "Bastion", "Windows Server"],
+                detailsPath: "/projects/azure-active-directory",
               },
               {
                 title: "Secure Backup Solution for Remote Workforce",
@@ -184,14 +204,10 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
-                {(project.title === "Two-Tier AWS Kubernetes Web App" || project.title === "Automated Cloud Infrastructure Deployment with Terraform and Ansible") ? (
+                {project.detailsPath ? (
                   <div className="mt-6">
                     <Link
-                      href={
-                        project.title === "Two-Tier AWS Kubernetes Web App"
-                          ? "/projects/two-tier-aws-kubernetes"
-                          : "/projects/terraform-ansible-aws"
-                      }
+                      href={project.detailsPath}
                       className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
                     >
                       View details
